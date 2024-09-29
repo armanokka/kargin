@@ -1,0 +1,54 @@
+<html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="style.css">
+<body>
+<header class="header">
+    <img class="header__logo" src="assets/logo.png">
+</header>
+<main class="main">
+    <div class="wheel">
+        <canvas id="wheel"></canvas>
+        <img class="fiftytwo" src="assets/52.png">
+        <p class="motivation_text">Колесо Крутится - Баллы Мутятся</p>
+    </div>
+    <div class="arrow_block">
+        <div class="arrow"></div>
+        <div class="arrow_outline"></div>
+    </div>
+    <div class="container">
+        <div class="control_panel">
+            <p class="control_panel_header">Расчет работяг</p>
+            <div class="input_block">
+                <label>От
+                    <input id="from" value="1" class="input black golden_outline" type="number">
+                </label>
+                <label>До
+                    <input id="to" value="30" class="input red golden_outline" type="number">
+                </label>
+            </div>
+            <button class="start_button">Запустить Шарманку</button>
+        </div>
+        <div class="kargin_block">
+            <img class="kargin__photo" src="assets/kargin1.png">
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <p>KARGIN CORPORATION ©</p>
+    <p>github.com/kargin-corp/roulette</p>
+    <div class="authors">
+        <a href="https://t.me/armanokka">@ARMANOKKA</a>
+        <a href="https://t.me/voosilev">@VOOSILEV</a>
+    </div>
+</footer>
+
+<!-- Chart JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+<!-- Chart JS Plugin for displaying text over chart -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
+<!-- Script -->
+<script src="script.js"></script>
+
+
+</body>
+</html>

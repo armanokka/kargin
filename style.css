@@ -1,0 +1,231 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "MyWebFont", sans-serif;
+    color: white;
+    font-size: 38px;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'MyWebFont';
+    src: url('assets/Constantine.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+
+}
+
+html {
+    background: url("assets/background.png");
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+}
+
+.header {
+    height: 20vh;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.header__logo {
+    width: min-content;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 10vh;
+}
+
+.wheel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+    margin-left: 2vw;
+    width: min-content;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.control_panel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 1vh;
+}
+
+.input_block {
+    display: flex;
+    gap: 5vh;
+}
+
+.kargin_block {
+    position: absolute;
+    max-height: 50vh;
+    right: 0;
+    bottom: 0;
+    flex: 1;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    height: 100%;
+}
+
+.motivation_text {
+    font-size: 38px;
+    font-weight: 300;
+}
+
+.kargin__photo {
+    /*position: absolute;*/
+    height: 100%;
+    /*width: auto;*/
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number]{
+    -moz-appearance: textfield;
+}
+
+.input {
+    height: 80px;
+    width: 130px;
+    padding: 7px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.golden_outline {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right, #7B6222 0%, #AF8C30 24%, #E1B43E 100%);
+    border-image-slice: 1;
+}
+
+.red {
+    background: #CF1200;
+}
+
+.black {
+    background: #101616;
+}
+
+.start_button {
+    position: relative;
+    border: 1px solid transparent;
+    border-radius: 32px;
+    background: linear-gradient(#CF1200, #CF1200);
+    background-clip: padding-box;
+    padding: 30px;
+    width: 24vw;
+    margin-left: 1vw;
+    margin-top: 3vh;
+    transition: 1s linear background-color;
+    cursor: pointer;
+}
+.start_button::after {
+    position: absolute;
+    top: -3px; bottom: -3px;
+    left: -3px; right: -3px;
+    background: linear-gradient(to right, #7B6222 0%, #AF8C30 24%, #E1B43E 100%);
+    content: '';
+    z-index: -1;
+    border-radius: 32px;
+}
+
+.start_button:disabled {
+    background: linear-gradient(#101616, #101616);
+    color: white;
+    cursor: none;
+}
+
+.control_panel_header {
+    font-size: 40px;
+}
+
+#wheel {
+    max-height: 70vh;
+    width: min-content;
+}
+
+.arrow_block {
+    position: relative;
+}
+
+.arrow {
+    position: absolute; /* Keep this */
+    background-image: linear-gradient(to right, #E1B43E, #7B6222);
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    outline: 10px solid transparent;
+    width: 90px;
+    height: 90px;
+    rotate: -90deg;
+    top: -75px;
+    left: -83px;
+    right: 0;
+    /*margin-right: 100px;*/
+    z-index: 0;
+}
+.arrow_outline {
+    position: absolute;
+    background: white;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    width: 100px;
+    height: 100px;
+    rotate: -90deg;
+    top: -80px;
+    left: -90px;
+    bottom: 0;
+    right: 0;
+    /*margin-right: 100px;*/
+    z-index: -1;
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background: black;
+    padding: 1vh;
+    width: 100%;
+}
+
+.authors {
+    display: flex;
+    flex-direction: column;
+}
+
+.fiftytwo {
+    position: absolute;
+    top: 50%;
+    box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
+}
