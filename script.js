@@ -20,7 +20,7 @@ function generateData(from, to) {
     }
 
     data.push(32)
-    labels.push('РЕРОЛЛ')
+    labels.push('REROLL')
     pieColors.push('#236729')
     return {data, labels, pieColors}
 }
@@ -78,7 +78,9 @@ spinBtn.addEventListener("click", () => {
     spinBtn.textContent = 'СТАВКА СДЕЛАНА'
     karginPhoto.setAttribute("src", "assets/kargin2.png")
     //Generate random degrees to stop at
-    let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
+    // let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
+    let randomDegree =  Math.floor(Math.random() * 360) + 1;
+    console.log('target degree', randomDegree)
     //Interval for rotation animation
     let rotationInterval = window.setInterval(() => {
         //Set rotation for piechart
@@ -92,7 +94,7 @@ spinBtn.addEventListener("click", () => {
         if (myChart.options.rotation >= 360) {
             count += 1;
             resultValue -= 5;
-            console.log(count, resultValue, randomDegree, myChart.options.rotation)
+            // console.log(count, resultValue, randomDegree, myChart.options.rotation)
             myChart.options.rotation = 0;
         } else if (count >= 10 && myChart.options.rotation == randomDegree) {
             // valueGenerator(randomDegree);
@@ -106,22 +108,6 @@ spinBtn.addEventListener("click", () => {
         }
     }, 20);
 });
-
-function addData(label, newData) {
-    myChart.data.labels.push(label);
-    myChart.data.datasets.forEach((dataset) => {
-        dataset.data.push(newData);
-    });
-    myChart.update();
-}
-
-function removeData() {
-    myChart.data.labels.pop();
-    myChart.data.datasets.forEach((dataset) => {
-        dataset.data.pop();
-    });
-    myChart.update();
-}
 
 
 
@@ -151,4 +137,8 @@ function inputHandler(e) {
     ];
     myChart.update()
 }
+
+document.querySelector(".start_button_overflow").addEventListener('click', ()=>{
+    spinBtn.click();
+})
 
