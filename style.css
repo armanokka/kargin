@@ -38,6 +38,7 @@ body {
 
 .header__logo {
     width: min-content;
+    height: fit-content;
 }
 
 .main {
@@ -96,7 +97,6 @@ body {
 }
 
 .motivation_text {
-    font-size: 38px;
     font-weight: 300;
 }
 
@@ -180,10 +180,6 @@ input[type=number]{
     cursor: none;
 }
 
-.control_panel_header {
-    font-size: 40px;
-}
-
 #wheel {
     max-height: 70vh;
     width: min-content;
@@ -239,5 +235,4 @@ input[type=number]{
 .fiftytwo {
     position: absolute;
     top: 50%;
-    box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
 }
