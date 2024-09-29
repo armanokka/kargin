@@ -15,7 +15,7 @@ function generateData(from, to) {
     var pieColors = [];
     for (var i = from; i <= to; i++) {
         data.push(16)
-        labels.push(i % 2 === 0 ? to - i === 0 ? 30 : to - i : i)
+        labels.push(i % 2 === 0 ? to - i === 0 ? to : to - i : i)
         pieColors.push(i % 2 === 0 ? '#CF1200': '#101616')
     }
 
