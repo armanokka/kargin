@@ -236,3 +236,7 @@ input[type=number]{
     position: absolute;
     top: 50%;
 }
+
+.footer-text {
+    font-size: 28px;
+}
