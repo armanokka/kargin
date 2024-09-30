@@ -20,7 +20,7 @@ function generateData(from, to) {
     }
 
     data.push(32)
-    labels.push('REROLL')
+    labels.push('РЕРОЛЛ')
     pieColors.push('#236729')
     return {data, labels, pieColors}
 }
@@ -80,7 +80,8 @@ spinBtn.addEventListener("click", () => {
     //Generate random degrees to stop at
     // let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
     let randomDegree =  Math.floor(Math.random() * 360) + 1;
-    console.log('target degree', randomDegree)
+
+    // console.log(360 / (max - min + 1), 'target degree', randomDegree)
     //Interval for rotation animation
     let rotationInterval = window.setInterval(() => {
         //Set rotation for piechart
@@ -91,12 +92,13 @@ spinBtn.addEventListener("click", () => {
         //Update chart with new value;
         myChart.update();
         //If rotation>360 reset it back to 0
+        // console.log(count,resultValue)
         if (myChart.options.rotation >= 360) {
             count += 1;
             resultValue -= 5;
             // console.log(count, resultValue, randomDegree, myChart.options.rotation)
             myChart.options.rotation = 0;
-        } else if (count >= 10 && myChart.options.rotation == randomDegree) {
+        } else if (count >= 20 && myChart.options.rotation == randomDegree) {
             // valueGenerator(randomDegree);
             spinBtn.disabled = false;
             spinBtn.textContent = 'ПОБЕДИТЕЛЬ ВЫБРАН'
