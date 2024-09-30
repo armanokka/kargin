@@ -16,7 +16,6 @@
 html, body {
     margin: 0;
     height: 100%;
-
 }
 
 html {
@@ -77,6 +76,7 @@ body {
     align-items: center;
     justify-content: start;
     gap: 1vh;
+
 }
 
 .input_block {
@@ -153,6 +153,7 @@ input[type=number]{
     transition: 1s linear background-color;
     cursor: pointer;
 }
+
 .start_button::after {
     position: absolute;
     top: -3px; bottom: -3px;
@@ -189,6 +190,7 @@ input[type=number]{
 .arrow_block {
     position: relative;
 }
+
 
 .arrow {
     position: absolute; /* Keep this */
@@ -236,10 +238,12 @@ input[type=number]{
 .fiftytwo {
     position: absolute;
     top: 50%;
-    animation: rotate 5s linear infinite;
+
+    animation: upscale 1s linear infinite;
     animation-fill-mode: forwards;
     animation-play-state: running;
 }
+
 
 @keyframes rotate {
     from {
@@ -247,6 +251,30 @@ input[type=number]{
     }
     to {
         rotate: 360deg;
+    }
+}
+
+@keyframes upscale {
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.07;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes upscale-font {
+    0% {
+        font-size: 38px;
+    }
+    50% {
+        font-size: 42px;
+    }
+    100% {
+        font-size: 38px;
     }
 }
 
