@@ -131,6 +131,7 @@ input[type=number]{
     border-image-slice: 1;
 }
 
+
 .red {
     background: #CF1200;
 }
@@ -182,7 +183,7 @@ input[type=number]{
 
 #wheel {
     max-height: 70vh;
-    width: min-content;
+    /*width: 110vh !important;*/
 }
 
 .arrow_block {
@@ -235,6 +236,18 @@ input[type=number]{
 .fiftytwo {
     position: absolute;
     top: 50%;
+    animation: rotate 5s linear infinite;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+    to {
+        rotate: 360deg;
+    }
 }
 
 .footer-text {
