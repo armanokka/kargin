@@ -3,8 +3,8 @@ const wheel = document.getElementById("wheel");
 const spinBtn = document.querySelector(".start_button");
 const karginPhoto = document.querySelector(".kargin__photo")
 
-const min = 2;
-const max = 32;
+const min = 1;
+const max = 30;
 
 
 const {data, labels, pieColors} = generateData(min, max)
@@ -15,7 +15,6 @@ function generateData(from, to) {
     var pieColors = [];
     for (var i = from; i <= to; i++) {
         data.push(16)
-        // labels.push(i % 2 === 0 ? to - i + 1: i + 1)
         labels.push(i)
         pieColors.push(i % 2 === 0 ? '#CF1200': '#101616')
     }
@@ -96,7 +95,7 @@ spinBtn.addEventListener("click", () => {
             resultValue -= 5;
             // console.log(count, resultValue, randomDegree, myChart.options.rotation)
             myChart.options.rotation = 0;
-        } else if (count >= 20 && myChart.options.rotation == randomDegree) {
+        } else if (count >= 15 && myChart.options.rotation == randomDegree) {
             // valueGenerator(randomDegree);
             spinBtn.disabled = false;
             spinBtn.textContent = 'ПОБЕДИТЕЛЬ ВЫБРАН'
@@ -127,7 +126,7 @@ toElement.addEventListener('input', inputHandler)
 // getRandomDegree returns random degree but modifies it so that the triangle with match to the middle of the wheel cell
 function getRandomDegree() {
     let randomDegree =  Math.floor(Math.random() * 360) + 1;
-    let cellStepDegree = 360 / (max - min + 3); // each cell takes this many degrees
+    let cellStepDegree = 360 / (max - min + 1); // each cell takes this many degrees
     return (Math.floor(randomDegree / cellStepDegree) + 0.5) * cellStepDegree;
 }
 
@@ -154,4 +153,3 @@ function inputHandler(e) {
 document.querySelector(".start_button_overflow").addEventListener('click', ()=>{
     spinBtn.click();
 })
-
