@@ -78,10 +78,7 @@ spinBtn.addEventListener("click", () => {
     spinBtn.textContent = 'СТАВКА СДЕЛАНА'
     karginPhoto.setAttribute("src", "assets/kargin2.png")
     //Generate random degrees to stop at
-    // let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
-    let randomDegree =  Math.floor(Math.random() * 360) + 1;
-
-    // console.log(360 / (max - min + 1), 'target degree', randomDegree)
+    let randomDegree =  getRandomDegree()
     //Interval for rotation animation
     let rotationInterval = window.setInterval(() => {
         //Set rotation for piechart
@@ -102,6 +99,12 @@ spinBtn.addEventListener("click", () => {
             // valueGenerator(randomDegree);
             spinBtn.disabled = false;
             spinBtn.textContent = 'ПОБЕДИТЕЛЬ ВЫБРАН'
+
+            // setInterval(()=>{
+            //     let photos = ['assets/kargi54.png', 'assets/kargin6.png', 'assets/kargin7.png', 'assets/kargin1.png']
+            //     let randPhoto = photos[Math.floor(Math.random()*photos.length)];
+            //     karginPhoto.setAttribute('src', 'assets/kargin3.png')
+            // })
             karginPhoto.setAttribute('src', 'assets/kargin3.png')
             clearInterval(rotationInterval);
             count = 0;
@@ -119,6 +122,13 @@ let fromElement = document.getElementById('from')
 
 fromElement.addEventListener('input',  inputHandler)
 toElement.addEventListener('input', inputHandler)
+
+// getRandomDegree returns random degree but modifies it so that the triangle with match to the middle of the wheel cell
+function getRandomDegree() {
+    let randomDegree =  Math.floor(Math.random() * 360) + 1;
+    let cellStepDegree = 360 / (max - min + 1); // each cell takes this many degrees
+    return (Math.floor(randomDegree / cellStepDegree) + 0.5) * cellStepDegree;
+}
 
 function inputHandler(e) {
     let from = fromElement.value
