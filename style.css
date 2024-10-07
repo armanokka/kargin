@@ -239,7 +239,7 @@ input[type=number]{
     position: absolute;
     top: 50%;
 
-    animation: upscale 1s linear infinite;
+    animation: rotate 7.5s linear infinite;
     animation-fill-mode: forwards;
     animation-play-state: running;
 }
