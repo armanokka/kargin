@@ -191,19 +191,17 @@ input[type=number]{
     position: relative;
 }
 
-
 .arrow {
-    position: absolute; /* Keep this */
+    position: absolute;
     background-image: linear-gradient(to right, #E1B43E, #7B6222);
     clip-path: polygon(50% 0, 100% 100%, 0 100%);
     outline: 10px solid transparent;
     width: 90px;
     height: 90px;
     rotate: -90deg;
-    top: -75px;
+    top: -78px;
     left: -83px;
     right: 0;
-    /*margin-right: 100px;*/
     z-index: 0;
 }
 .arrow_outline {
@@ -213,7 +211,7 @@ input[type=number]{
     width: 100px;
     height: 100px;
     rotate: -90deg;
-    top: -80px;
+    top: -83px;
     left: -90px;
     bottom: 0;
     right: 0;

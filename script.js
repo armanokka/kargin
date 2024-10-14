@@ -86,6 +86,7 @@ let additionalRotation = 51;
 let changePhotoTimeout;
 //Start spinning
 var audio = new Audio('assets/rotation.m4a');
+let firstSpinHappened = false;
 spinBtn.addEventListener("click", () => {
     audio.pause();
     let loopAudio = true
@@ -101,10 +102,8 @@ spinBtn.addEventListener("click", () => {
     spinBtn.disabled = true;
     spinBtn.textContent = 'СТАВКА СДЕЛАНА'
     karginPhoto.setAttribute("src", "assets/kargin2.png")
-    // fiftyTwo.style.animationPlayState = 'paused'
-    //Generate random degrees to stop at
-    let randomDegree =  getRandomDegree()
-    //Interval for rotation animation
+    let targetDegree =  getRandomTargetDegree()
+
     let rotationInterval = window.setInterval(() => {
         //Set rotation for piechart
         /*
@@ -120,7 +119,8 @@ spinBtn.addEventListener("click", () => {
                 additionalRotation -= 5;
             }
             myChart.options.rotation = 0
-        } else if (count >= 11 && Math.floor(myChart.options.rotation / 10) == Math.floor(randomDegree / 10)) {
+        // } else if (count >= 11 && Math.floor(myChart.options.rotation / 10) == Math.floor(randomDegree / 10)) {
+        } else if (count >= 11 && Math.floor(myChart.options.rotation / 10) == Math.floor(targetDegree / 10)) {
             // valueGenerator(randomDegree);
             spinBtn.disabled = false;
             spinBtn.textContent = 'ПОБЕДИТЕЛЬ ВЫБРАН'
@@ -130,6 +130,7 @@ spinBtn.addEventListener("click", () => {
             clearInterval(rotationInterval);
             count = 0;
             additionalRotation = 51;
+            myChart.options.rotation += 3;
             myChart.update();
 
             loopAudio = false;
@@ -158,10 +159,16 @@ fromElement.addEventListener('input',  inputHandler)
 toElement.addEventListener('input', inputHandler)
 
 // getRandomDegree returns random degree but modifies it so that the triangle with match to the middle of the wheel cell
-function getRandomDegree() {
-    let randomDegree =  Math.floor(Math.random() * 359) + 1;
-    let cellStepDegree = 360 / (max - min + 1); // each cell takes this many degrees
-    return (Math.floor(randomDegree / cellStepDegree) + 0.5) * cellStepDegree;
+function getRandomTargetDegree() {
+    let oneCellRotation = 360 / (max - min + 3)
+    // oneCellRotation *= 1.5
+    let totalCellsCount = 360 / oneCellRotation
+    let randomCell = getRandomInteger(1, totalCellsCount) * oneCellRotation;
+    if (!firstSpinHappened) {
+        randomCell += oneCellRotation * 0.5
+        firstSpinHappened = true
+    }
+    return randomCell
 }
 
 function inputHandler(e) {
@@ -197,6 +204,10 @@ function shuffleArray(array) {
 document.querySelector(".start_button_overflow").addEventListener('click', ()=>{
     spinBtn.click();
 })
+
+function getRandomInteger(a, b) {
+    return Math.floor(Math.random() * (b - a + 1)) + a;
+}
 
 function confetti() {
     tsParticles.load({
