@@ -238,10 +238,8 @@ input[type=number]{
 .fiftytwo {
     position: absolute;
     top: 50%;
-
+    z-index: 10;
     animation: rotate 7.5s linear infinite;
-    animation-fill-mode: forwards;
-    animation-play-state: running;
 }
 
 
@@ -280,4 +278,10 @@ input[type=number]{
 
 .footer-text {
     font-size: 28px;
+}
+
+.wheel-outline {
+    border: 3px solid transparent;
+    border-image: linear-gradient(to right, #7B6222 0%, #AF8C30 24%, #E1B43E 100%);
+    border-image-slice: 1;
 }
